@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <table id="example">
     <thead>
     <tr>
-        <th>id</th>
+        <th>ID_R</th>
         <th>Name</th>
         <th>Mobile</th>
         <th>Address</th>
