@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["name"]."</td>";
     $table .=  "<td>".$row["mobile"]."</td>";
     $table .=  "<td>".$row["address"]."</td>";
-    $table .=  "<td>".$row["gender"]?$row["gender"]:"n/a"."</td>";
+    $table .=  "<td>".$row["gender"]."</td>";
     $table .=  "<td><button>Send sms</button></td>";
     $table .=  "<tr>";
 }
