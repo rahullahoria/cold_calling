@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 </head>
 <body>
-<table id="example">
+<table id="example" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
         <th>ID_R</th>
