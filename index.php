@@ -8,6 +8,68 @@
 
 $db_handle = mysqli_connect("localhost","root","redhat@11111p","cold_calls");
 
+
+function sendSMS($to, $message){
+    $username = "rajnish90";
+    $password = "redhat123";
+    $senderid = "BLUETM";
+
+    $url = "http://www.smsjust.com/blank/sms/user/urlsms.php?".
+        "username=".$username.
+        "&pass=".$password.
+        "&senderid=".$senderid.
+        "&dest_mobileno=".$to.
+        "&msgtype=TXT".
+        "&message=".urlencode($message).
+        "&response=Y"
+    ;
+    //echo $url;
+    return httpGet($url);
+}
+
+function sendProSMS($to, $message){
+    $username = "rajnish90";
+    $password = "redhat123";
+    $senderid = "BLUETM";
+
+    $url = "http://www.smsjust.com/blank/sms/user/urlsms.php?".
+        "username=".$username.
+        "&pass=".$password.
+        "&senderid=".$senderid.
+        "&dest_mobileno=".$to.
+        "&msgtype=TXT".
+        "&message=".urlencode($message).
+        "&response=Y"
+    ;
+    //echo $url;
+    return httpGet($url);
+}
+
+function httpGet($url){
+    $ch = curl_init();
+
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+//  curl_setopt($ch,CURLOPT_HEADER, false);
+
+    $output=curl_exec($ch);
+
+    curl_close($ch);
+    return $output;
+}
+
+if($_POST['send_sms']){
+    $mobile = $_POST['mobile'];
+    $mobile = "9599075955";
+
+    $message = "You have just talked to BlueTeam, to Get reliable and trusted domestic service http://goo.gl/545wov ";
+    sendSMS($mobile, $message);
+
+    //mysqli_query($db_handle, "UPDATE `calling_queue` SET status = 'done' WHERE id = " . $_POST['id']);
+
+}
+
+
 $sql = "SELECT  * from calling_queue where status = 'in-queue' limit 0, 500";
 //echo $sql;
 $result = mysqli_query($db_handle,
@@ -22,7 +84,13 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["mobile"]."</td>";
     $table .=  "<td>".$row["address"]."</td>";
     $table .=  "<td>".$row["gender"]."</td>";
-    $table .=  "<td><button>Send sms</button></td>";
+    $table .=  "<td>
+                    <form method='post'>
+                        <input type='hidden' name='id' value='".$row["id"]."' />
+                        <input type='hidden' name='mobile' value='".$row["mobile"]."' />
+                        <input type='submit' name='send_sms' value='SMS'>
+                    </form>
+                </td>";
     $table .=  "</tr>";
 }
 ?>
