@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["address"]."</td>";
     $table .=  "<td>".$row["gender"]."</td>";
     $table .=  "<td><button>Send sms</button></td>";
-    $table .=  "<tr>";
+    $table .=  "</tr>";
 }
 ?>
 
