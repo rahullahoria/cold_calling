@@ -60,13 +60,12 @@ function httpGet($url){
 
 if($_POST['send_sms']){
     $mobile = $_POST['mobile'];
-    $mobile = "9599075955";
+    //$mobile = "9599075955";
 
-    $message = "You have just talked to BlueTeam, to Get reliable and trusted domestic service like Maid, Cook, Babysitter\n
-                http://goo.gl/545wov ";
+    $message = "You have just talked to BlueTeam, to Get reliable and trusted Maid, Cook, Babysitter\nhttp://goo.gl/545wov ";
     sendSMS($mobile, $message);
 
-    //mysqli_query($db_handle, "UPDATE `calling_queue` SET status = 'done' WHERE id = " . $_POST['id']);
+    mysqli_query($db_handle, "UPDATE `calling_queue` SET status = 'done' WHERE id = " . $_POST['id']);
 
 }
 
