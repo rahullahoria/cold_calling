@@ -112,6 +112,17 @@ while ($row = mysqli_fetch_assoc($result)) {
                 </td>";
     $table .=  "</tr>";
 }
+/*SELECT status,count(*) FROM `calling_queue` WHERE DATE(`updated`) = CURDATE() group by status*/
+
+$sql = "SELECT status,count(*) as c FROM `calling_queue` WHERE DATE(`updated`) = CURDATE() group by status;";
+//echo $sql;
+$result = mysqli_query($db_handle,
+    $sql);
+
+$todayStatus = "|";
+while ($row = mysqli_fetch_assoc($result)) {
+    $todayStatus .= "<b>".$row['status']."</b>: ".$row['c']. " |";
+}
 ?>
 
 <html>
@@ -119,6 +130,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 </head>
 <body>
+<div style="text-align: center;"><?=$todayStatus ?></div>
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
