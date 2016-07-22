@@ -77,7 +77,7 @@ if($_POST['send_sms']){
 }
 
 
-$sql = "SELECT  * from calling_queue where status = 'in-queue' limit 0, 500";
+$sql = "SELECT  * from calling_queue where status = 'in-queue' limit 0, 100";
 //echo $sql;
 $result = mysqli_query($db_handle,
     $sql);
