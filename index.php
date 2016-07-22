@@ -91,20 +91,20 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["mobile"]."</td>";
     $table .=  "<td>".$row["address"]."</td>";
     /*$table .=  "<td>".$row["gender"]."</td>";*/
-    $table .=  "<td style=\"display: inline;\">
-                    <form method='post' style=\"margin: 0; padding: 0;\">
+    $table .=  "<td >
+                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input style=\"display: inline;\" type='submit' name='change_status' value='DNP'>
                     </form>
-                    <form method='post' style=\"margin: 0; padding: 0;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input style=\"display: inline;\"type='submit' name='change_status' value='NR'>
                     </form>
-                    <form method='post' style=\"margin: 0; padding: 0;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input type='submit' name='change_status' value='NW'>
                     </form>
-                    <form method='post' style=\"margin: 0; padding: 0;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input type='hidden' name='mobile' value='".$row["mobile"]."' />
                         <input style=\"display: inline;\" type='submit' name='send_sms' value='SMS'>
