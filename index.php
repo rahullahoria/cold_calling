@@ -134,7 +134,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
-        <th>ID_R</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Mobile</th>
         <th>Address</th>
