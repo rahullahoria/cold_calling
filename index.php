@@ -69,7 +69,7 @@ if($_POST['send_sms']){
     $mobile = $_POST['mobile'];
     //$mobile = "9599075955";
 
-    $message = "You have just talked to BlueTeam, to Get reliable and trusted Maid, Cook, Babysitter\nhttp://goo.gl/545wov ";
+    $message = "You have just talked to BlueTeam, to Get reliable and trusted Maid, Cook, Driver & Babysitter\n9599075355\nhttp://goo.gl/545wov";
     sendSMS($mobile, $message);
 
     mysqli_query($db_handle, "UPDATE `calling_queue` SET status = 'done' WHERE id = " . $_POST['id']);
@@ -92,19 +92,19 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["address"]."</td>";
     /*$table .=  "<td>".$row["gender"]."</td>";*/
     $table .=  "<td >
-                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 1px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input style=\"display: inline;\" type='submit' name='change_status' value='DNP'>
                     </form>
-                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 1px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input style=\"display: inline;\"type='submit' name='change_status' value='NR'>
                     </form>
-                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 1px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input type='submit' name='change_status' value='NW'>
                     </form>
-                    <form method='post' style=\"margin: 0; float: left; padding: 5px;\">
+                    <form method='post' style=\"margin: 0; float: left; padding: 1px;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input type='hidden' name='mobile' value='".$row["mobile"]."' />
                         <input style=\"display: inline;\" type='submit' name='send_sms' value='SMS'>
@@ -152,7 +152,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 <script>
     $(function(){
-        $("#example").dataTable();
+        $("#example").dataTable(   { "iDisplayLength": 50
+    });
     })
 </script>
 </body>
