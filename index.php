@@ -126,7 +126,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         <th>Name</th>
         <th>Mobile</th>
         <th>Address</th>
-        <th>Gender</th>
+        <!--<th>Gender</th>-->
         <th>SMS</th>
 
     </tr>
