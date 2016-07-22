@@ -58,6 +58,13 @@ function httpGet($url){
     return $output;
 }
 
+if($_POST['change_status']){
+
+
+    mysqli_query($db_handle, "UPDATE `calling_queue` SET status = '".$_POST['change_status']."' WHERE id = " . $_POST['id']);
+
+}
+
 if($_POST['send_sms']){
     $mobile = $_POST['mobile'];
     //$mobile = "9599075955";
@@ -83,8 +90,20 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["name"]."</td>";
     $table .=  "<td>".$row["mobile"]."</td>";
     $table .=  "<td>".$row["address"]."</td>";
-    $table .=  "<td>".$row["gender"]."</td>";
+    /*$table .=  "<td>".$row["gender"]."</td>";*/
     $table .=  "<td>
+                    <form method='post'>
+                        <input type='hidden' name='id' value='".$row["id"]."' />
+                        <input type='submit' name='change_status' value='DNP'>
+                    </form>
+                    <form method='post'>
+                        <input type='hidden' name='id' value='".$row["id"]."' />
+                        <input type='submit' name='change_status' value='NR'>
+                    </form>
+                    <form method='post'>
+                        <input type='hidden' name='id' value='".$row["id"]."' />
+                        <input type='submit' name='change_status' value='NW'>
+                    </form>
                     <form method='post'>
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input type='hidden' name='mobile' value='".$row["mobile"]."' />
