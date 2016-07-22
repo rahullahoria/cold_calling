@@ -91,7 +91,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table .=  "<td>".$row["mobile"]."</td>";
     $table .=  "<td>".$row["address"]."</td>";
     /*$table .=  "<td>".$row["gender"]."</td>";*/
-    $table .=  "<td>
+    $table .=  "<td style=\"display: inline;\">
                     <form method='post' style=\"margin: 0; padding: 0;\">
                         <input type='hidden' name='id' value='".$row["id"]."' />
                         <input style=\"display: inline;\" type='submit' name='change_status' value='DNP'>
