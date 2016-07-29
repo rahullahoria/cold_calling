@@ -69,7 +69,7 @@ if($_POST['send_sms']){
     $mobile = $_POST['mobile'];
     //$mobile = "9599075955";
 
-    $message = "You have just talked to BlueTeam, to Get reliable and trusted Maid, Cook, Driver & Babysitter\n9599075355\nhttp://goo.gl/545wov";
+    $message = "You have just talked to BlueTeam, to Get reliable and trusted Maid, Cook, Driver & Babysitter\n9599075355\nhttp://goo.gl/PhJXAg";
     sendSMS($mobile, $message);
 
     mysqli_query($db_handle, "UPDATE `calling_queue` SET status = 'done' WHERE id = " . $_POST['id']);
