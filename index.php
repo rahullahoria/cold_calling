@@ -5,6 +5,7 @@
  * Date: 7/19/16
  * Time: 10:41 AM
  */
+session_start();
 
 $db_handle = mysqli_connect("localhost","root","redhat@11111p","cold_calls");
 
@@ -75,6 +76,11 @@ if($_POST['send_sms']){
     mysqli_query($db_handle, "UPDATE `calling_queue` SET status = 'done' WHERE id = " . $_POST['id']);
 
 }
+
+if (!isset($_SESSION['user_id']))
+    header("location: http://shatkonlabs.com/ragnar/login.php");
+
+$userID = $_SESSION['user_id'];
 
 
 $sql = "SELECT  * from calling_queue where status = 'in-queue' limit 0, 100";
